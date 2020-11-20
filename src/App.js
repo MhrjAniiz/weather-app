@@ -32,14 +32,11 @@ export default class App extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const getdata = async () => {
-      const fetchedData = await WeatherData.get(
-        "http://api.openweathermap.org/data/2.5/weather",
-        {
-          params: {
-            q: this.state.city,
-          },
-        }
-      );
+      const fetchedData = await WeatherData.get("weather", {
+        params: {
+          q: this.state.city,
+        },
+      });
       console.log(fetchedData);
       this.setState({
         name: fetchedData.data.name,
